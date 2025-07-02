@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi Agencia de Marketing con IA</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Mi Agencia de Marketing con IA</h1>
+            <nav>
+                <ul>
+                    <li><a href="#inicio">Inicio</a></li>
+                    <li><a href="#servicios">Servicios</a></li>
+                    <li><a href="#acerca">Acerca de</a></li>
+                    <li><a href="#contacto">Contacto</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section id="inicio" class="hero">
+        <div class="container">
+            <h2>Impulsando tu Negocio con Inteligencia Artificial</h2>
+            <p>Creamos agentes virtuales, automatización y estrategias de marketing innovadoras impulsadas por IA para resultados sin precedentes.</p>
+            <a href="#contacto" class="btn">¡Hablemos de tu Proyecto!</a>
+        </div>
+    </section>
+
+    <section id="servicios" class="services">
+        <div class="container">
+            <h3>Nuestros Servicios de IA</h3>
+            <div class="service-grid">
+                <div class="service-item">
+                    <h4>Agentes Virtuales Personalizados</h4>
+                    <p>Bots conversacionales y asistentes inteligentes adaptados a tus necesidades.</p>
+                </div>
+                <div class="service-item">
+                    <h4>Automatización de Marketing</h4>
+                    <p>Optimiza campañas y procesos con soluciones avanzadas de IA.</p>
+                </div>
+                <div class="service-item">
+                    <h4>Análisis Predictivo</h4>
+                    <p>Anticipa tendencias y toma decisiones estratégicas con datos.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="acerca" class="about">
+        <div class="container">
+            <h3>Sobre Nosotros</h3>
+            <p>Somos un equipo apasionado por la intersección del marketing y la inteligencia artificial, comprometidos con el éxito de nuestros clientes.</p>
+        </div>
+    </section>
+
+    <section id="contacto" class="contact">
+        <div class="container">
+            <h3>Contáctanos</h3>
+            <p>¿Listo para transformar tu marketing? Envíanos un mensaje.</p>
+            <form action="#" method="POST">
+                <input type="text" name="nombre" placeholder="Tu Nombre" required>
+                <input type="email" name="email" placeholder="Tu Email" required>
+                <textarea name="mensaje" placeholder="Tu Mensaje" rows="5" required></textarea>
+                <button type="submit" class="btn">Enviar Mensaje</button>
+            </form>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Mi Agencia de Marketing con IA. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
