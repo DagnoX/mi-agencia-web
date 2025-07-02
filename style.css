@@ -60,15 +60,59 @@ header nav ul li a:hover {
 
 /* Sección Hero (Inicio) */
 .hero {
+    /* Mantenemos el fondo degradado, pero eliminamos el "text-align: center" general */
     background: linear-gradient(to right, rgba(44, 62, 80, 0.8), rgba(26, 188, 156, 0.8)), url('https://via.placeholder.com/1500x800/2c3e50/ffffff?text=Fondo+IA') no-repeat center center/cover;
     color: white;
-    text-align: center;
     padding: 100px 20px;
     min-height: 400px;
-    display: flex;
-    align-items: center;
+    display: flex; /* Añadimos flexbox para centrar el contenido verticalmente */
+    align-items: center; /* Centra el contenido verticalmente */
+    justify-content: center; /* Centra el contenido horizontalmente */
+    /* Eliminamos flex-direction: column; de aquí, lo pondremos en hero-content para móvil */
+}
+
+.hero .hero-content {
+    display: flex; /* Habilitamos flexbox para las columnas */
+    align-items: center; /* Centra los elementos de las columnas verticalmente */
+    justify-content: space-between; /* Espacio entre las columnas */
+    max-width: 1200px; /* Asegura que no se estire demasiado */
+    width: 100%; /* Ocupa todo el ancho disponible */
+    flex-wrap: wrap; /* Permite que las columnas se envuelvan en pantallas pequeñas */
+    text-align: left; /* Alinea el texto a la izquierda por defecto */
+}
+
+.hero .hero-text {
+    flex: 1; /* Permite que el texto ocupe el espacio disponible */
+    min-width: 300px; /* Asegura que el texto no se haga demasiado pequeño */
+    padding-right: 40px; /* Espacio entre el texto y la imagen */
+}
+
+.hero .hero-image {
+    flex: 1; /* Permite que la imagen ocupe el espacio disponible */
+    min-width: 300px; /* Asegura que la imagen no se haga demasiado pequeña */
+    display: flex; /* Para centrar la imagen dentro de su columna */
     justify-content: center;
-    flex-direction: column;
+    align-items: center;
+}
+
+.hero .hero-image img {
+    max-width: 100%; /* La imagen no excederá el ancho de su contenedor */
+    height: auto; /* Mantiene la proporción de la imagen */
+    border-radius: 8px; /* Un poco de borde redondeado para la imagen */
+    box-shadow: 0 10px 25px rgba(0,0,0,0.3); /* Sombra para que destaque */
+}
+
+/* Adaptación para pantallas pequeñas (mobile) */
+@media (max-width: 768px) {
+    .hero .hero-content {
+        flex-direction: column; /* Apila las columnas verticalmente */
+        text-align: center; /* Centra el texto en móviles */
+    }
+
+    .hero .hero-text {
+        padding-right: 0; /* Elimina el padding derecho en móvil */
+        margin-bottom: 30px; /* Espacio entre el texto y la imagen apilados */
+    }
 }
 
 .hero h2 {
