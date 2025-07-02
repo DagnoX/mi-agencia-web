@@ -98,8 +98,8 @@ header nav ul li a:hover {
 .hero .hero-image img {
     max-width: 100%; /* La imagen no excederá el ancho de su contenedor */
     height: auto; /* Mantiene la proporción de la imagen */
-    border-radius: 8px; /* Un poco de borde redondeado para la imagen */
-    box-shadow: 0 10px 25px rgba(0,0,0,0.3); /* Sombra para que destaque */
+   /* border-radius: 8px;*/ /* Un poco de borde redondeado para la imagen */
+    /*box-shadow: 0 10px 25px rgba(0,0,0,0.3);*/ /* Sombra para que destaque */
 }
 
 /* Adaptación para pantallas pequeñas (mobile) */
