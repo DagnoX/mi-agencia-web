@@ -15,14 +15,21 @@ body {
 }
 
 /* Encabezado */
+/* Encabezado */
 header {
-    background-color: #2c3e50; /* Azul oscuro */
+    background-color: #2c3e50;
     color: white;
-    padding: 15px 0;
+    padding: 10px 0; /* Prueba con 5px 0, 10px 0, o 15px 0 para ajustar la altura total de la cabecera */
+    /* REMUEVE height: 60px; */ /* Quita esta altura fija, el padding lo manejará */
     position: sticky;
     top: 0;
     z-index: 1000;
     box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+
+    /* ELIMINA estas propiedades de aquí, ya están en header .container */
+    /* display: flex; */
+    /* align-items: center; */
+    /* justify-content: space-between; */
 }
 
 header .container {
@@ -32,8 +39,30 @@ header .container {
 }
 
 header h1 {
-    margin: 0;
-    font-size: 1.8em;
+    /*margin: 0;*/
+    /*font-size: 1.8em;*/
+}
+
+header .logo {
+    /* Asegúrate de que no haya margin-left: auto; o margin-right: auto;
+       que lo centren */
+    margin: 0; /* Elimina cualquier margin que pueda centrarlo */
+    /* Si quieres darle un ancho máximo al contenedor del logo, puedes añadirlo aquí */
+    /* max-width: 150px; */ /* Ejemplo: el contenedor del logo no será más ancho de 150px */
+}
+
+header .logo img {
+    height: auto;
+    max-height: 80px; /* <-- ¡Ajusta este valor para el tamaño deseado del logo! */
+    max-width: 100%;
+    object-fit: contain; /* Asegura que el logo se vea completo */
+    vertical-align: middle;
+    transition: transform 0.3s ease;
+}
+
+/* Y tu hover que prefieras, por ejemplo: */
+header .logo img:hover {
+    transform: scale(1.05);
 }
 
 header nav ul {
@@ -168,17 +197,111 @@ section h3 {
 }
 
 .services .service-item {
-    background-color: white;
-    padding: 30px;
-    border-radius: 8px;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-    text-align: left;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    /* Tus estilos existentes */
+    background-color: transparent; /* Importante para que se vea el flip */
+    position: relative; /* Necesario para posicionar las caras */
+    transform-style: preserve-3d; /* Habilita el contexto 3D para la animación */
+    perspective: 1000px; /* Define la perspectiva 3D */
+    height: 250px; /* <--- Altura fija para que el flip funcione correctamente */
+    display: flex; /* Para centrar el contenido dentro del item */
+    justify-content: center;
+    align-items: center;
+    overflow: hidden; /* Oculta cualquier desbordamiento durante el giro */
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1); /* Mantén la sombra en el item padre */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Transición para el efecto de sombra en el item */
 }
 
+/* Elimina el :hover de .service-item si quieres que el efecto de sombra sea solo del flip */
 .services .service-item:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+    /* transform: translateY(-5px); <-- Elimínalo si solo quieres el flip */
+    box-shadow: 0 8px 20px rgba(0,0,0,0.2); /* Sombra más pronunciada al pasar el ratón */
+}
+
+/* Contenedor interno que girará */
+.services .service-card {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    transform-style: preserve-3d;
+    transition: transform 0.8s; /* Duración de la animación de giro */
+}
+
+/* Estilos para las caras frontal y trasera */
+.services .service-front,
+.services .service-back {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    backface-visibility: hidden; /* Oculta la cara cuando está girada hacia atrás */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 30px;
+    border-radius: 8px;
+    /* box-shadow: 0 5px 15px rgba(0,0,0,0.1); <-- Quita la sombra de aquí, la pusimos en .service-item */
+    text-align: center; /* Centra el texto dentro de la tarjeta */
+    box-sizing: border-box; /* Para incluir el padding en el width/height */
+}
+
+.services .service-front {
+    background-color: white;
+    color: #333;
+    z-index: 2; /* Asegura que esté por delante inicialmente */
+    transform: rotateY(0deg);
+}
+
+.services .service-back {
+    background-color: #d3d3d3; /* Color de fondo para la cara trasera */
+    color: white;
+    transform: rotateY(180deg); /* Inicialmente girada para estar oculta */
+    z-index: 1; /* Asegura que esté por detrás inicialmente */
+}
+
+/* Efecto de giro al pasar el ratón */
+.services .service-item:hover .service-card {
+    transform: rotateY(180deg); /* Gira la tarjeta al pasar el ratón */
+}
+
+/* Estilo para el botón de la cara trasera */
+.btn-small {
+    display: inline-block;
+    background-color: white;
+    color: #1abc9c;
+    padding: 8px 15px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: 600;
+    margin-top: 15px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.btn-small:hover {
+    background-color: #f0f0f0;
+    color: #16a085;
+}
+
+/* Asegúrate de que los h4 y p dentro de las caras se vean bien */
+.services .service-front h4,
+.services .service-back h4 {
+    color: inherit; /* Hereda el color del padre */
+    margin-top: 0;
+    margin-bottom: 15px;
+}
+.services .service-front p,
+.services .service-back p {
+    color: inherit; /* Hereda el color del padre */
+    line-height: 1.6;
+}
+
+/* Media Queries para Responsividad - Ajustes si es necesario */
+@media (max-width: 768px) {
+    /* Puedes ajustar la altura de los items en móvil si lo ves necesario */
+    .services .service-item {
+        height: 220px; /* Ejemplo de altura ajustada para móviles */
+    }
 }
 
 .services .service-item h4 {
