@@ -261,7 +261,7 @@ section h3 {
 }
 
 /* Efecto de giro al pasar el ratón */
-.services .service-item.flipped .service-card {
+.services .service-item:hover .service-card {
     transform: rotateY(180deg); /* Gira la tarjeta al pasar el ratón */
 }
 
